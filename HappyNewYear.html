@@ -2,11 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Happy New Year ✨</title>
+<title>Thank You ✨</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap');
+/* Load JRD Font */
+@font-face {
+    font-family: 'JRD';
+    src: url('jrd.otf') format('opentype');
+}
 
 * {
     margin: 0;
@@ -16,13 +20,13 @@
 
 body {
     height: 100vh;
-    background: radial-gradient(circle at top, #1b1b3a, #050510);
+    background: radial-gradient(circle at top, #111122, #000000);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-family: 'Playfair Display', serif;
-    color: #fff;
+    font-family: 'JRD', serif;
+    color: #ffffff;
 }
 
 canvas {
@@ -39,27 +43,25 @@ canvas {
 }
 
 h1 {
-    font-size: 3.2rem;
+    font-size: 3.5rem;
     letter-spacing: 2px;
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 2.2s ease-in-out infinite alternate;
 }
 
-p {
-    margin-top: 20px;
-    font-size: 1.3rem;
-    max-width: 500px;
-    line-height: 1.6;
+.signature {
+    margin-top: 25px;
+    font-size: 1.4rem;
     opacity: 0;
     animation: fadeIn 2s ease forwards;
-    animation-delay: 1s;
+    animation-delay: 1.2s;
 }
 
 @keyframes glow {
     from {
-        text-shadow: 0 0 10px #ffd700, 0 0 20px #ffb700;
+        text-shadow: 0 0 12px #ffd700, 0 0 22px #ffb700;
     }
     to {
-        text-shadow: 0 0 25px #ffffff, 0 0 45px #ffd700;
+        text-shadow: 0 0 28px #ffffff, 0 0 48px #ffd700;
     }
 }
 
@@ -75,11 +77,8 @@ p {
 <canvas id="fireworks"></canvas>
 
 <div class="content">
-    <h1>✨ Happy New Year ✨</h1>
-    <p>
-        “Every ending is a new beginning.  
-        May this year bring clarity, courage, and quiet victories.”
-    </p>
+    <h1>Thank You</h1>
+    <div class="signature">— S. Thanmay Rooba Nathan</div>
 </div>
 
 <script>
@@ -93,22 +92,22 @@ let particles = [];
 
 function firework() {
     const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height * 0.5;
+    const y = Math.random() * canvas.height * 0.45;
 
-    for (let i = 0; i < 120; i++) {
+    for (let i = 0; i < 130; i++) {
         particles.push({
             x,
             y,
-            vx: (Math.random() - 0.5) * 7,
-            vy: (Math.random() - 0.5) * 7,
-            life: 100,
+            vx: (Math.random() - 0.5) * 8,
+            vy: (Math.random() - 0.5) * 8,
+            life: 110,
             color: `hsl(${Math.random() * 360},100%,60%)`
         });
     }
 }
 
 function animate() {
-    ctx.fillStyle = "rgba(0,0,0,0.15)";
+    ctx.fillStyle = "rgba(0,0,0,0.18)";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     particles.forEach((p, i) => {
@@ -127,7 +126,7 @@ function animate() {
     requestAnimationFrame(animate);
 }
 
-setInterval(firework, 800);
+setInterval(firework, 850);
 animate();
 
 addEventListener("resize", () => {
